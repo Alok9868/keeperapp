@@ -1,4 +1,7 @@
-import firebase from "firebase";
+import firebase from 'firebase/app';
+import 'firebase/auth';        
+import 'firebase/database';  
+import 'firebase/firestore';   
 const firebaseConfig = {
     apiKey: "AIzaSyC9po2Vax8AXnJVpPqtff9p3S6OjbjkS-w",
     authDomain: "keeper-app-704a9.firebaseapp.com",

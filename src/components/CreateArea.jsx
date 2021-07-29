@@ -3,11 +3,11 @@ import AddIcon from "@material-ui/icons/Add";
 import Fab from "@material-ui/core/Fab";
 import Zoom from "@material-ui/core/Zoom";
 import db from "./firebase";
-import { useStateValue } from "./StateProvider";
+import cookie from 'react-cookies';
 
 function CreateArea() {
   const [isExpanded, setExpanded] = useState(false);
-  const [{user},dispatch]=useStateValue();
+  const userid=cookie.load("userid");
 
   const [note, setNote] = useState({
     title: "",
@@ -26,7 +26,7 @@ function CreateArea() {
 
   function submitNote(event) {
     db.collection("users")
-    .where('userid','==',user.uid)
+    .where('userid','==',userid)
     .onSnapshot((snapshot)=>{
       snapshot.docs.map((doc)=>{
         db.collection('users')
